@@ -494,4 +494,4 @@ def main(page: ft.Page):
 # 🌟 自動抓取雲端主機給的 Port，如果在自己電腦跑就預設用 8550
 port = int(os.environ.get("PORT", 8550))
 # 加上 AppView. 讓新舊版 Flet 都能看得懂
-ft.app(target=main, view=ft.AppView.WEB_BROWSER, host="0.0.0.0", port=port)
+ft.app(target=main, view="web_browser", host="0.0.0.0", port=port)
