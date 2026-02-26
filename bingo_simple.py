@@ -135,11 +135,15 @@ def generate_dynamic_stars(data, ranked_strats):
         
     return results
 
-# --- UI 繪圖工具 ---
+# --- 畫「獎球」小工具 (雲端防彈版) ---
 def create_ball(number, color="blue900"):
     return ft.Container(
-        content=ft.Text(f"{number:02d}", size=14, weight="bold", color="white"),
-        width=30, height=30, bgcolor=color, border_radius=15, alignment=ft.alignment.center
+        content=ft.Row(
+            [ft.Text(f"{number:02d}", size=14, weight="bold", color="white")],
+            alignment="center",
+            vertical_alignment="center"
+        ),
+        width=30, height=30, bgcolor=color, border_radius=15, padding=0
     )
 
 # --- Flet 主介面邏輯 ---
@@ -495,3 +499,4 @@ def main(page: ft.Page):
 port = int(os.environ.get("PORT", 8550))
 # 加上 AppView. 讓新舊版 Flet 都能看得懂
 ft.app(target=main, view="web_browser", host="0.0.0.0", port=port)
+
